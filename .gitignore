@@ -1,0 +1,7 @@
+tmux/.config/tmux/plugins
+tmux/.config/tmux/sessions
+tmux/.config/tmux/sessions.lock
+tmux/.config/tmux/resurrect
+
+nvim/.config/nvim/pythonvenv/*
+nvim/.config/nvim/lazygit.tar.gz

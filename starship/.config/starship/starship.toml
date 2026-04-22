@@ -73,7 +73,7 @@ style = ""
 format = '[ $symbol ($version)](fg:#ff5555)'
 
 [golang]
-symbol = ""
+symbol = "󰟓"
 style = ""
 format = '[ $symbol ($version)](fg:#8be9fd)'
 

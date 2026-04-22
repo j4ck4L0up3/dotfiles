@@ -58,7 +58,7 @@ format = '[[($all_status$ahead_behind )](fg:#f1fa8c bg:#44475a)]($style)'
 success_symbol = "[󱞩](fg:cyan bold)"
 
 [nodejs]
-symbol = ""
+symbol = ""
 style = "fg:green bold"
 format = '[ $symbol ($version)]($style)'
 

@@ -56,6 +56,11 @@ format = '[[($all_status$ahead_behind )](fg:#f1fa8c bg:#44475a)]($style)'
 
 [character]
 success_symbol = "[󱞩](fg:cyan bold)"
+error_symbol = "[󱞩](fg:red bold)"
+vimcmd_symbol = "[󱞥](fg:cyan bold)"
+vimcmd_replace_one_symbol = "[󱞥](fg:green bold)"
+vimcmd_replace_symbol = "[󱞥](fg:pink bold)"
+vimcmd_visual_symbol = "[󱞥](fg:yellow bold)"
 
 [nodejs]
 symbol = ""

@@ -1,0 +1,84 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](#bd93f9)\
+$directory\
+[ ](fg:#bd93f9 bg:#44475a)\
+$git_branch\
+$git_status\
+[ ](fg:#44475a bg:#50fa7b)\
+$time\
+[ ](fg:#50fa7b)\
+$nodejs\
+$rust\
+$golang\
+$php\
+\n$character"""
+
+
+# Use the color palette
+palette = "dracula"
+
+# Define Dracula color palette
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+
+[directory]
+style = "fg:foreground bg:purple bold "
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:current_line"
+format = '[[ $symbol $branch ](fg:#bd93f9 bg:#44475a)]($style)'
+
+[git_status]
+style = "bg:current_line"
+format = '[[($all_status$ahead_behind )](fg:#f1fa8c bg:#44475a)]($style)'
+
+[character]
+success_symbol = "[󱞩](fg:cyan bold)"
+
+[nodejs]
+symbol = ""
+style = "fg:green bold"
+format = '[ $symbol ($version)]($style)'
+
+[rust]
+symbol = ""
+style = ""
+format = '[ $symbol ($version)](fg:#ff5555)'
+
+[golang]
+symbol = ""
+style = ""
+format = '[ $symbol ($version)](fg:#8be9fd)'
+
+[php]
+symbol = ""
+style = ""
+format = '[ $symbol ($version)](fg:#ffb86c)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:background bg:green bold"
+format = '[   $time]($style)'

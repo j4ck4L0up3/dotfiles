@@ -137,6 +137,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# set shell for gcc/g++
+export CONFIG_SHELL="/usr/bin/env bash"
+
+# set default editor
+export EDITOR="vim"
+
 # nvim setup
 export PATH="$PATH:/opt/nvim"
 . "$HOME/.cargo/env"

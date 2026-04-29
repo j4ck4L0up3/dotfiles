@@ -3,10 +3,10 @@
 format = """
 [](#bd93f9)\
 $directory\
-[ ](fg:#bd93f9 bg:#44475a)\
+[ ](fg:#bd93f9 bg:#ff79c6)\
 $git_branch\
 $git_status\
-[ ](fg:#44475a bg:#50fa7b)\
+[ ](fg:#ff79c6 bg:#50fa7b)\
 $time\
 [ ](fg:#50fa7b)\
 $nodejs\
@@ -47,12 +47,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:current_line"
-format = '[[ $symbol $branch ](fg:#bd93f9 bg:#44475a)]($style)'
+style = "bg:pink"
+format = '[[ $symbol $branch ](fg:#f8f8f2 bg:#ff79c6)]($style)'
 
 [git_status]
-style = "bg:current_line"
-format = '[[($all_status$ahead_behind )](fg:#f1fa8c bg:#44475a)]($style)'
+style = "bg:pink"
+format = '[[($all_status$ahead_behind )](fg:#f1fa8c bg:#ff79c6)]($style)'
 
 [character]
 success_symbol = "[󱞩](fg:cyan bold)"

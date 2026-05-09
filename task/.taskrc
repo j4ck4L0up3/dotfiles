@@ -2,7 +2,7 @@
 data.location=$XDG_CONFIG_HOME/.config/task/.task
 
 # Format dates
-dateformat=M-D-Y h:n
+dateformat=M-D-Y
 dateformat.report=A, B d, Y h:n
 
 # Load theme

@@ -165,4 +165,4 @@ eval "$(starship init bash)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # set taskwarrior config path
-export TASKRC=~/.config/task/.taskrc
+export XDG_CONFIG_HOME=~/.config

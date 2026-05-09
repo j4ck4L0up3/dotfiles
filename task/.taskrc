@@ -1,1 +1,9 @@
-data.location=~/.config/task/.task
+# Task location
+data.location=$XDG_CONFIG_HOME/.config/task/.task
+
+# Format dates
+dateformat=M-D-Y h:n
+dateformat.report=A, B d, Y h:n
+
+# Load theme
+include ./dracule.theme

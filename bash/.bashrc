@@ -163,3 +163,6 @@ export NVM_DIR="$HOME/.nvm"
 # add starship prompt to bash
 eval "$(starship init bash)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# set taskwarrior config path
+export TASKRC=~/.config/task/.taskrc

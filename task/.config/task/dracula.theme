@@ -17,7 +17,7 @@
 
 # color enabled
 
-color=1
+color=on
 
 # General decoration
 
@@ -29,6 +29,7 @@ color.footnote=color61                      # comment color
 color.warning=color235 on color215          # bg on orange — warning per spec
 color.error=color235 on color203            # bg on red — errors per spec
 color.debug=color61                         # comment color — low priority
+color.none=color255 on color61              # foreground for anything unmatched
 
 # Task state
 

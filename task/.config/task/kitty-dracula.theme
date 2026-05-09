@@ -1,0 +1,104 @@
+# Dracula Theme
+
+# Color palette (kitty ANSI slots)
+
+# background   = color0    (#21222C) / terminal bg
+# current-line = color8    (#6272A4)
+# selection    = color59   (#44475A) — no kitty ANSI slot, keep 256-color
+# foreground   = color7    (#F8F8F2)
+# comment      = color8    (#6272A4)
+# red          = color1    (#FF5555)
+# orange       = color215  (#FFB86C) — no kitty ANSI slot, keep 256-color
+# yellow       = color3    (#F1FA8C)
+# green        = color2    (#50FA7B)
+# cyan         = color6    (#8BE9FD)
+# purple       = color4    (#BD93F9)
+# pink         = color5    (#FF79C6)
+
+# color enabled
+
+color=on
+
+# General decoration
+
+color.label=color4                          # purple — labels are UI chrome
+color.label.sort=bold color4               # bold purple to indicate active sort
+color.alternate=on color59                  # selection — subtle row striping
+color.header=color5                         # pink — keywords/storage per spec
+color.footnote=color8                       # comment color
+color.warning=color0 on color215            # bg on orange — warning per spec
+color.error=color0 on color1                # bg on red — errors per spec
+color.debug=color8                          # comment color — low priority
+color.none=color7                           # foreground for anything unmatched
+
+# Task state
+
+color.completed=color8                      # comment — de-emphasized, done
+color.deleted=color1                        # red — deletion per spec
+color.active=bold color2                    # bold green — active/running
+color.recurring=color6                      # cyan — types/classes, structured
+color.scheduled=color4                      # purple — reserved/planned
+color.until=color215                        # orange — constants, time-bound
+color.blocked=color0 on color1              # bg on red — error state
+color.blocking=color0 on color215           # bg on orange — warning state
+
+# Project
+
+color.project.none=color8                   # comment — absent/unset
+
+# Priority
+
+color.uda.priority.H=bold color1            # bold red — high urgency/error
+color.uda.priority.M=bold color215          # bold orange — medium/warning
+color.uda.priority.L=bold color3            # bold yellow — low/string-level
+
+# Tags
+
+color.tag.next=bold color5                  # bold pink — keyword prominence
+color.tag.none=color8                       # comment — untagged/de-emphasized
+color.tagged=color4                         # purple — reserved words
+
+# Due
+
+color.due=color3                            # yellow — upcoming, string-level
+color.due.today=bold color215               # bold orange — urgent constant
+color.overdue=bold color1                   # bold red — error/deletion
+
+# Report: burndown
+
+color.burndown.done=color0 on color2        # bg on green — success
+color.burndown.pending=color0 on color1     # bg on red — deletion/incomplete
+color.burndown.started=color0 on color215   # bg on orange — in-progress/warning
+
+# Report: history
+
+color.history.add=color0 on color2          # bg on green — additions
+color.history.delete=color0 on color1       # bg on red — deletions per spec
+color.history.done=color0 on color4         # bg on purple — completed/reserved
+
+# Report: summary
+
+color.summary.background=on color59         # selection — subtle bg
+color.summary.bar=color0 on color2          # bg on green — progress/success
+
+# Command: calendar
+
+color.calendar.due=color0 on color3         # bg on yellow — upcoming
+color.calendar.due.today=color0 on color215 # bg on orange — urgent
+color.calendar.holiday=color0 on color4     # bg on purple — special/reserved
+color.calendar.overdue=color0 on color1     # bg on red — error
+color.calendar.scheduled=color0 on color8   # bg on comment — low-key
+color.calendar.today=color0 on color6       # bg on cyan — current/support
+color.calendar.weekend=on color59           # selection — subtle
+color.calendar.weeknumber=color8            # comment — de-emphasized
+
+# Command: sync
+
+color.sync.added=color2                     # green — additions/functions
+color.sync.changed=color3                   # yellow — modified/strings
+color.sync.rejected=color1                  # red — errors/deletions
+
+# Command: undo
+
+color.undo.after=color2                     # green — the new/added state
+color.undo.before=color1                    # red — the removed/deleted state

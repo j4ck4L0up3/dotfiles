@@ -166,3 +166,4 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # set taskwarrior config path
 export XDG_CONFIG_HOME=~/.config
+export TASKRC=$XDG_CONFIG_HOME/task/.taskrc

@@ -8,6 +8,9 @@ dateformat.report=A, B d, Y h:n
 # Load theme
 include ~/.config/task/kitty-dracula.theme
 
+# Suppress TASKRC override message
+verbose=blank,header,footnote,label,new-id,affected,edit,special,project,sync,unwait
+
 # Reports
 report.all.sort=due+
 

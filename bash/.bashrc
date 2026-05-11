@@ -141,7 +141,10 @@ unset __conda_setup
 export CONFIG_SHELL="/usr/bin/env bash"
 
 # set default editor
-export EDITOR="vim"
+export EDITOR="nvim"
+
+# set config path
+export XDG_CONFIG_HOME=~/.config
 
 # nvim setup
 export PATH="$PATH:/opt/nvim"
@@ -163,7 +166,3 @@ export NVM_DIR="$HOME/.nvm"
 # add starship prompt to bash
 eval "$(starship init bash)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-# set taskwarrior config path
-export XDG_CONFIG_HOME=~/.config
-export TASKRC=$XDG_CONFIG_HOME/task/.taskrc

@@ -23,7 +23,7 @@ color=on
 
 color.label=color141                        # purple — labels are UI chrome
 color.label.sort=bold color141              # bold purple to indicate active sort
-color.alternate=on color59                  # selection — subtle row striping
+color.alternate=color255 on color59         # foreground on selection — subtle row striping
 color.header=color212                       # pink — keywords/storage per spec
 color.footnote=color61                      # comment color
 color.warning=color235 on color215          # bg on orange — warning per spec
@@ -55,7 +55,7 @@ color.uda.priority.L=bold color228          # bold yellow — low/string-level
 # Tags
 
 color.tag.next=bold color212               # bold pink — keyword prominence
-color.tag.none=color61                     # comment — untagged/de-emphasized
+color.tag.none=color255                    # foreground — untagged/de-emphasized
 color.tagged=color141                      # purple — reserved words
 
 # Due

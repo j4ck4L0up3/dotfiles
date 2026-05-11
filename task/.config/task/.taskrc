@@ -6,5 +6,10 @@ dateformat=M-D-Y
 dateformat.report=A, B d, Y h:n
 
 # Load theme
-color=on
-include ./kitty-dracula.theme
+include ~/.config/task/kitty-dracula.theme
+
+# Reports
+report.all.sort=due+
+
+# Urgency
+urgency.user.project.CMSC330.coefficient=2.5

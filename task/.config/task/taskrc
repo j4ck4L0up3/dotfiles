@@ -14,5 +14,7 @@ verbose=blank,header,footnote,label,new-id,affected,edit,special,project,sync,un
 # Reports
 report.all.sort=due+
 
-# Urgency
-urgency.user.project.CMSC330.coefficient=2.5
+report.scheduled.description=Scheduled tasks
+report.scheduled.columns=id,scheduled.relative,due.relative,project,tags,description
+report.scheduled.sort=scheduled+
+report.scheduled.filter=+SCHEDULED

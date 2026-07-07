@@ -5,9 +5,10 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
+		{ "mfussenegger/nvim-jdtls" },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
+		local lspconfig = vim.lsp.config
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -70,11 +71,6 @@ return {
 			cmp_nvim_lsp.default_capabilities()
 		)
 
-		lspconfig.gdscript.setup({ capabilities = capabilities })
-		vim.keymap.set("n", "<leader>ag", function()
-			vim.fn.serverstart("127.0.0.1:6004")
-		end, { noremap = true })
-
 		-- change the diagnostic symbols in the sign column (gutter)
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
@@ -98,10 +94,23 @@ return {
 			},
 		})
 
+		vim.lsp.config("eslint", {
+			capabilities = capabilities,
+			settings = {
+				workingDirectory = { mode = "auto" },
+			},
+		})
+
 		require("mason").setup()
 		-- Note: `nvim-lspconfig` needs to be in 'runtimepath' by the time you set up mason-lspconfig.nvim
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "emmet_ls" },
+			ensure_installed = { "lua_ls", "emmet_ls", "eslint" },
+			handlers = {
+				function(server_name)
+					vim.lsp.config(server_name, { capabilities = capabilities })
+					vim.lsp.enable(server_name)
+				end,
+			},
 		})
 	end,
 }

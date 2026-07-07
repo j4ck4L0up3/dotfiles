@@ -12,6 +12,7 @@ $time\
 $nodejs\
 $rust\
 $golang\
+$python\
 $php\
 \n$character"""
 

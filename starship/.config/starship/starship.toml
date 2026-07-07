@@ -70,18 +70,23 @@ format = '[ $symbol ($version)]($style)'
 
 [rust]
 symbol = ""
-style = ""
-format = '[ $symbol ($version)](fg:#ff5555)'
+style = "fg:orange bold"
+format = '[ $symbol ($version)]($style)'
 
 [golang]
 symbol = "󰟓"
-style = ""
-format = '[ $symbol ($version)](fg:#8be9fd)'
+style = "fg:cyan bold"
+format = '[ $symbol ($version)]($style)'
+
+[python]
+symbol = ""
+style = "fg:yellow bold"
+format = '[ $symbol ($version) (\($virtualenv)\)]($style)'
 
 [php]
 symbol = ""
-style = ""
-format = '[ $symbol ($version)](fg:#ffb86c)'
+style = "fg:pink bold"
+format = '[ $symbol ($version)]($style)'
 
 [time]
 disabled = false

@@ -104,7 +104,7 @@ return {
 		require("mason").setup()
 		-- Note: `nvim-lspconfig` needs to be in 'runtimepath' by the time you set up mason-lspconfig.nvim
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "emmet_ls", "eslint" },
+			ensure_installed = { "lua_ls", "eslint" },
 			handlers = {
 				function(server_name)
 					vim.lsp.config(server_name, { capabilities = capabilities })

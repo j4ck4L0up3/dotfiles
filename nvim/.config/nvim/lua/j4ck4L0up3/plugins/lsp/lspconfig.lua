@@ -78,7 +78,17 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		vim.lsp.config("lua_ls", {
+		lspconfig("rust_analyzer", {
+			settings = {
+				["rust_analyzer"] = {
+					formatting = {
+						command = { "rustfmt" },
+					},
+				},
+			},
+		})
+
+		lspconfig("lua_ls", {
 			settings = {
 				Lua = {
 					runtime = {
@@ -94,7 +104,7 @@ return {
 			},
 		})
 
-		vim.lsp.config("eslint", {
+		lspconfig("eslint", {
 			capabilities = capabilities,
 			settings = {
 				workingDirectory = { mode = "auto" },
@@ -103,7 +113,7 @@ return {
 
 		require("mason").setup()
 		-- Note: `nvim-lspconfig` needs to be in 'runtimepath' by the time you set up mason-lspconfig.nvim
-		require("mason-lspconfig").setup({
+		mason_lspconfig.setup({
 			ensure_installed = { "lua_ls", "eslint" },
 			handlers = {
 				function(server_name)

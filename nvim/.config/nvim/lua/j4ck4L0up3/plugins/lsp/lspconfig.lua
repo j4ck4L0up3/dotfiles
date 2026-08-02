@@ -61,7 +61,9 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", function()
-					vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = ev.buf }))
+					for _, client in ipairs(vim.lsp.get_clients()) do
+						client:stop()
+					end
 					vim.cmd("edit")
 				end, opts)
 			end,

@@ -23,6 +23,7 @@ return {
 				tailwindcss = { "rustywind" },
 				jinja = { "djlint" },
 				sql = { "sqruff" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = function(bufnr)
 				return {
@@ -31,6 +32,7 @@ return {
 					timeout_ms = 1000,
 				}
 			end,
+
 			formatters = {
 				sqruff = {
 					inherit = true,
@@ -42,7 +44,20 @@ return {
 					},
 					stdin = true,
 				},
+				rustfmt = {
+					args = { "--config-path", vim.fn.expand("~/.config/rustfmt/rustfmt.toml"), "--emit=stdout" },
+				},
 			},
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "rust",
+			callback = function()
+				vim.bo.tabstop = 2
+				vim.bo.shiftwidth = 2
+				vim.bo.softtabstop = 2
+				vim.bo.expandtab = false
+			end,
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()

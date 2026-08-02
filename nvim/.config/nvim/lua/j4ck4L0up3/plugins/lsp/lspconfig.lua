@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	ft = { "python", "go", "rust", "lua", "ruby", "javascript", "typescript", "sql" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
@@ -9,7 +9,8 @@ return {
 	},
 	config = function()
 		local lspconfig = vim.lsp.config
-		local mason_lspconfig = require("mason-lspconfig")
+		local enable = vim.lsp.enable
+		local mason = require("mason")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
@@ -59,7 +60,10 @@ return {
 				keymap.set("n", "<leader>ds", vim.lsp.buf.hover, opts)
 
 				opts.desc = "Restart LSP"
-				keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
+				keymap.set("n", "<leader>rs", function()
+					vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = ev.buf }))
+					vim.cmd("edit")
+				end, opts)
 			end,
 		})
 
@@ -78,7 +82,16 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		lspconfig("gopls", {
+			capabilities = capabilities,
+			cmd = { "gopls" },
+			filetypes = { "go" },
+			root_markers = { "go.mod", "go.sum" },
+		})
+		enable("gopls")
+
 		lspconfig("rust_analyzer", {
+			capabilities = capabilities,
 			settings = {
 				["rust_analyzer"] = {
 					formatting = {
@@ -87,8 +100,10 @@ return {
 				},
 			},
 		})
+		enable("rust_analyzer")
 
 		lspconfig("lua_ls", {
+			capabilities = capabilities,
 			settings = {
 				Lua = {
 					runtime = {
@@ -103,6 +118,7 @@ return {
 				},
 			},
 		})
+		enable("lua_ls")
 
 		lspconfig("eslint", {
 			capabilities = capabilities,
@@ -110,17 +126,8 @@ return {
 				workingDirectory = { mode = "auto" },
 			},
 		})
+		enable("eslint")
 
-		require("mason").setup()
-		-- Note: `nvim-lspconfig` needs to be in 'runtimepath' by the time you set up mason-lspconfig.nvim
-		mason_lspconfig.setup({
-			ensure_installed = { "lua_ls", "eslint" },
-			handlers = {
-				function(server_name)
-					vim.lsp.config(server_name, { capabilities = capabilities })
-					vim.lsp.enable(server_name)
-				end,
-			},
-		})
+		mason.setup()
 	end,
 }

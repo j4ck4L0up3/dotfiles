@@ -166,3 +166,9 @@ export NVM_DIR="$HOME/.nvm"
 # add starship prompt to bash
 eval "$(starship init bash)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# opencode
+export PATH=/home/j4ck4l0up3/.opencode/bin:$PATH
+
+# ollama context window manual set
+export OLLAMA_CONTEXT_LENGTH=65536

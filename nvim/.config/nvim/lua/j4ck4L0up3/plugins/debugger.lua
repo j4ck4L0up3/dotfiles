@@ -13,6 +13,28 @@ return {
 		-- Go Debug Adapter Config
 		dapgo.setup()
 
+		-- Add codelldb adapter & configure it for use w/ rust
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = "/home/j4ck4l0up3/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+				args = { "--port", "${port}" },
+			},
+		}
+		dap.configurations.rust = {
+			{
+				name = "Launch",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+			},
+		}
+
 		-- Key Bindings
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()

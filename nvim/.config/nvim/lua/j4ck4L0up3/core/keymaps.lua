@@ -24,4 +24,15 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-keymap.set("t", "Escape", "<C-\\><C-n>", { desc = "Close terminal" }) -- close terminal
+-- terminal
+keymap.set("n", "<C-t>", "<cmd>terminal<CR>", { desc = "Open terminal in current buffer" }) -- open terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "term://*",
+	callback = function()
+		local opts = {
+			buffer = 0,
+			desc = "Exit terminal mode",
+		}
+		keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts) -- exit terminal mode
+	end,
+})

@@ -154,7 +154,7 @@ export PATH="$PATH:/opt/nvim"
 export PATH="$PATH:$HOME/.local/bin"
 
 # go bin
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # set tmux persistent sessions
 # export TMUX_TMPDIR="$HOME/.config/tmux/sessions/"

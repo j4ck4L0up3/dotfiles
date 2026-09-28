@@ -12,7 +12,7 @@ return {
 				typescriptreact = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
-				go = { "gofmt", "golines" },
+				go = { "golines" },
 				python = { "isort", "black" },
 				json = { "prettier" },
 				yaml = { "prettier" },

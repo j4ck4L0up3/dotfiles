@@ -137,6 +137,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# run auto-activation on devenv
+if [ "$(which devenv)" ]; then
+  eval "$(devenv hook bash)"
+fi
+
 # set shell for gcc/g++
 export CONFIG_SHELL="/usr/bin/env bash"
 

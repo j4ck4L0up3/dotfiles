@@ -16,8 +16,7 @@ NOTE: The function(s)/method(s) here refer(s) to the function that is to be test
 
 You should be provided a function signature and the purpose of the function.
 You may also be provided a file with function signatures already added.
-If the functions in a file are implemented, ignore the implementation when curating the tests.
-Good tests only need know the signatures. With that said, if a test has an "empty" signature (i.e. no params and no return) (ex. `fn my_func()`) do not write a test for it and reflect that you did not do so in your report.
+If the functions in a file are implemented, use this to provide additional context to ensure a correct test, but make sure a function with the same signature could be swapped into your test no problem.
 For struct methods, you should also be provided a struct definition.
 If you are not provided this information, use the /to-questionnaire skill to acquire it.
 
@@ -27,6 +26,8 @@ Multiple files or links may be provided for one or more functions/methods.
 
 Be thorough when creating test cases. Provide "good" cases in addition to the "bad" cases.
 Be sure to include reasonable edge cases as well.
+
+It is _not_ your job to make tests pass. I want to know if there are bugs, so if tests won't pass based on current implementation, but you understand the expected behavior, do _not_ alter the test to make them pass. I will fix the bugs.
 
 Here is an example struct definition and method signature:
 

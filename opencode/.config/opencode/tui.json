@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "keybinds": {
+    "session_rename": "alt+r"
+  },
+  "plugin": [
+    [
+      "@renjfk/opencode-voice",
+      {
+        "endpoint": "http://localhost:11434/v1",
+        "model": "ollama/gemma4:26b"
+      }
+    ]
+  ]
+}

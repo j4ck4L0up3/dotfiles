@@ -1,6 +1,6 @@
 [sqruff]
 dialect = sqlite
-exclude_rules = LT02
+exclude_rules = LT02,layout.indent
 
 [sqruff:indentation]
 indent_unit = space

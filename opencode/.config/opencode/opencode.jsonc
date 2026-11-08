@@ -48,6 +48,6 @@
     }
   },
   "plugins": [
-    "opencode-websearch-cited"
+    // "opencode-websearch-cited@1.2.0"
   ]
 }

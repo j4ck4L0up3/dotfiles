@@ -1,10 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "lsp": true,
-  "provider": {
+  "providers": {
     "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
+      "package": "@ai-sdk/openai-compatible",
+      "settings": {
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
@@ -14,49 +14,40 @@
     },
     "open-router": {}
   },
-  "permission": {
-    "read": "allow",
-    "grep": "allow",
-    "glob": "allow",
-    "edit": "ask",
-    "bash": "ask",
-    "webfetch": "allow",
-    "websearch": "allow",
-    "question": "allow",
-    "skill": "allow"
-  },
-  "agent": {
+  "permissions": [
+    { "action": "read", "resource": "$HOME/*", "effect": "allow" },
+    { "action": "read", "resource": "*.env", "effect": "deny" },
+    { "action": "grep", "resource": "$HOME/*", "effect": "allow" },
+    { "action": "glob", "resource": "*", "effect": "allow" },
+    { "action": "edit", "resource": "$HOME/*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" },
+    { "action": "websearch", "resource": "*", "effect": "allow" },
+    { "action": "question", "resource": "*", "effect": "allow" },
+    { "action": "skill", "resource": "*", "effect": "allow" },
+    { "action": "subagent", "resource": "*", "effect": "ask" }
+  ],
+  "policies": [{ "action": "tool.use", "resource": "shell:sudo *", "effect": "deny" }],
+  "agents": {
     "research": {
-      "model": "ollama/gemma4:26b",
-      "permission": {
-        "webfetch": "allow",
-        "websearch": "allow",
-        "websearch_cited": "allow"
-      }
+      "model": "ollama/gemma4:26b"
     },
     "scaffold": {
       "model": "ollama/gemma4:26b",
-      "permission": {
-        "webfetch": "allow",
-        "websearch": "allow",
-        "websearch_cited": "allow",
-        "bash": "allow",
-        "write": "allow"
-      }
+      "permissions": [
+        { "action": "edit", "resource": "$HOME/*", "effect": "allow" },
+        { "action": "subagent", "resource": "*", "effect": "allow" }
+      ]
     },
     "test": {
       "model": "ollama/qwen3.8:27b",
-      "permission": {
-        "webfetch": "allow",
-        "websearch": "allow",
-        "websearch_cited": "allow",
-        "bash": "allow",
-        "write": "allow",
-        "edit": "allow"
-      }
+      "permissions": [
+        { "action": "edit", "resource": "$HOME/*", "effect": "allow" },
+        { "action": "shell", "resource": "*", "effect": "allow" }
+      ]
     }
   },
-  "plugin": [
+  "plugins": [
     "opencode-websearch-cited"
   ]
 }

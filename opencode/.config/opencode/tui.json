@@ -3,7 +3,7 @@
   "keybinds": {
     "session_rename": "alt+r"
   },
-  "plugin": [
+  "plugins": [
     [
       "@renjfk/opencode-voice",
       {
